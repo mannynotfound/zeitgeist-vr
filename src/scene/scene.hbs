@@ -1,0 +1,27 @@
+<a-scene id="aframe-project" inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+  <a-assets>
+    <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+    {{> content}}
+  </a-assets>
+
+  <!-- Camera + cursor. -->
+  {{> camera}}
+
+  <!-- Snow effect -->
+  <a-sky id="sky" color="#000000"></a-sky>
+  <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 1000; velocityValue: 0 1 0"></a-entity>
+
+  <!-- Content elements. -->
+  <a-entity id="content-layout" layout="type: circle; radius: {{config.rowRadius}}; plane: xz;" position="0 0 0">
+    {{#contents}}
+      <a-entity 
+        id="content-{{@index}}"
+        template="src: #content-cpt; type: html"
+        data-ypos={{this.yPos}}
+        data-thumbnail={{this.src}}
+        data-src={{this.src}}
+        data-dur={{this.dur}}
+        data-thumb="{{this.src}}"></a-entity>
+    {{/contents}}
+  </a-entity>
+</a-scene>

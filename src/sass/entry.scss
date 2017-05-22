@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+/**
+ * THEME CONFIGURATION
+ */
+// Global variables
+@import "config/index";
+
+/**
+ * VENDORS
+ */
+// A-Frame
+@import
+  'vendor/aframevr/aframe',
+  'vendor/aframevr/rStats';
+
+/**
+ * Project styles
+ */
+@import 'a-project/entry';
